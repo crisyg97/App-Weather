@@ -7,7 +7,7 @@ module.exports = {
 
     entry: [
         '@babel/polyfill',
-        './src/app/index.js'
+        './src/index.js'
     ],
     output: {
         path: __dirname + '/build',

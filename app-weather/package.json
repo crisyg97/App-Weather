@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.17.2",
+    "babel-polyfill": "^6.26.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
