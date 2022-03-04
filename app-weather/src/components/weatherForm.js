@@ -3,9 +3,9 @@ import React from 'react';
 const weatherForm = (props) => {
     return (
         <div className="Card card-body">
-            <form action=" " class="border p-3 form">
+            <form onSubmit= {props.GetWeather} class="border p-3 form">
                 <div className="form-group">
-                    <input type="text" name="city" placeholder="your city name" className="form-control" autofocus/>{/*autofocus= cursos parpadeando */} 
+                    <input type="text" name="city" placeholder="your city name" className="form-control" autoFocus/>{/*autofocus= cursos parpadeando */} 
                 </div>
                 <br></br>
                 <div className="form-group">

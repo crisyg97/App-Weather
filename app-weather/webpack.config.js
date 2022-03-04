@@ -6,7 +6,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
 
     entry: [
-        '@babel/polyfill',
+        '@babel/polyfill', //async y await request
         './src/index.js'
     ],
     output: {
