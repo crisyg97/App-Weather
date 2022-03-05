@@ -4,6 +4,7 @@ import WeatherInfo from './components/weatherData';
 import WeatherForm from './components/weatherForm';
 import { API_KEY } from './keys';
 //image
+import './App.css';
 //import image from './src/assets/cielo-nubes';
 
 class App extends Component {
@@ -25,42 +26,45 @@ class App extends Component {
     const cityValue = city.value;
     const countryValue = country.value;
   
-    const infoWeather = {}; //datos almacenados sacados de la consulta
+    var infoWeather = ""; //datos almacenados sacados de la consulta
 
-    const API_url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${API_KEY}&units=metrics`;
-    console.log(API_url);
-    //ejecucion consulta
-    const res = await fetch(API_url)
-      .then(res => res.json())
-      .then(data => {
-        infoWeather = data;
-        console.log(data)
-      });
+    if(cityValue && countryValue){
+      const API_url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${API_KEY}&units=metrics`;
+      console.log(API_url);
+      //ejecucion consulta
+      const res = await fetch(API_url)
+        .then(res => res.json())
+        .then(data => {
+          infoWeather = data;
+          console.log(data)
+        });
 
+        this.setState({
+          temperature: infoWeather.main.temp,
+          description: infoWeather.weather[0].description,
+          humidity: infoWeather.main.humidity,
+          windSpeed: infoWeather.wind.speed,
+          city: infoWeather.name,
+          country: infoWeather.sys.country,
+          error: null
+        }, () => {console.log(this.state)})
+    }else{
       this.setState({
-        temperature: infoWeather.main.temp,
-        description: infoWeather.weather[0].description,
-        humidity: infoWeather.main.humidity,
-        windSpeed: wind.speed,
-        city: infoWeather.name,
-        country: infoWeather.sys.country,
-        error: null
+        error: 'Please enter a City and Country'
       })
+    }
   }
 
   render(){
     return (
-    <div> 
-      <div className="container p-4">
-        <div className="row">S
+      <div className="container p-4" >
+        <div className="row">
           <div className="col-md-6">
             <WeatherForm GetWeather={this.GetWeather}/>
             <WeatherInfo {...this.state}/>
           </div>
         </div>
       </div>
-    </div>
-    
   );
   }
   
