@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import WeatherInfo from './components/weatherData';
 import WeatherForm from './components/weatherForm';
 import { API_KEY } from './keys';
-//image
-import './App.css';
-//import image from './src/assets/cielo-nubes';
 
 class App extends Component {
 
@@ -29,7 +26,7 @@ class App extends Component {
     var infoWeather = ""; //datos almacenados sacados de la consulta
 
     if(cityValue && countryValue){
-      const API_url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${API_KEY}&units=metrics`;
+      const API_url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${API_KEY}&units=metric`;
       console.log(API_url);
       //ejecucion consulta
       const res = await fetch(API_url)

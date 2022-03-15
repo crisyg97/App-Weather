@@ -14,16 +14,16 @@ const weatherData = (props) => {
                 props.temperature ?
                 <div>
                     <div className="card card-body">
-                        <p>
+                        <p><i className="fas fa-globe-americas"></i>
                             Location: {props.city}, {props.country}
                         </p>
-                        <p>
-                            Temperature: {props.temperature}, {props.description}
+                        <p><i class="fas fa-temperature-low"></i>
+                            Temperature: {props.temperature} °C, {props.description}
                         </p>
-                        <p>
+                        <p><i className="fas fa-water"></i>
                             Humidity: {props.humidity}
                         </p>
-                        <p>
+                        <p><i className="fas fa-wind"></i>
                             Wind Speed: {props.windSpeed}
                         </p>
                     </div>
